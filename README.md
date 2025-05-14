@@ -59,12 +59,6 @@ For full technical and user documentation, please visit:
 
 ---
 
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
----
-
 ## 📄 License
 
 This project is licensed. Please refer to the documentation or project maintainer for more information.
