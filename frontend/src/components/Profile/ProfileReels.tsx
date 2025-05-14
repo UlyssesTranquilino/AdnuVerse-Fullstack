@@ -193,7 +193,7 @@ const ProfileReels = ({ userId }) => {
             height="100%"
           />
         </div>
-
+        {/* 
         <label className="flex  items-center gap-3 ">
           <div className="w-16 mb-5 h-7 mt-4 flex-shrink-0 overflow-hidden">
             <Skeleton
@@ -212,7 +212,7 @@ const ProfileReels = ({ userId }) => {
               height="100%"
             />
           </div>
-        </label>
+        </label> */}
       </div>
 
       <div className=" mt-7 grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">
