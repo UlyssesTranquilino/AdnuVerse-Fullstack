@@ -137,7 +137,7 @@ export const useReelsStore = create<ReelsStore>((set) => ({
   fetchReels: async () => {
     set({ loading: true });
     try {
-      const res = await axios.get("http://localhost:3000/api/reels");
+      const res = await axios.get("https://adnuverse-backend.onrender.com/api/reels");
 
       set({ reels: res.data.data, loading: false });
     } catch (err) {
@@ -183,7 +183,7 @@ export const useUserStore = create(
         try {
           // Sending POST request to authenticate the user
           const res = await axios.post(
-            `http://localhost:3000/api/users/login`,
+            `https://adnuverse-backend.onrender.com/api/users/login`,
             {
               email: email,
               password: password,
@@ -241,7 +241,7 @@ export const useUserStore = create(
           }
 
           const res: SignupResponse = await axios.post(
-            "http://localhost:3000/api/users/create",
+            "https://adnuverse-backend.onrender.com/api/users/create",
             {
               firstName,
               lastName,
@@ -281,7 +281,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.put(
-            `http://localhost:3000/api/users/${currentUser._id}`,
+            `https://adnuverse-backend.onrender.com/api/users/${currentUser._id}`,
             updatedFields,
             {
               headers: {
@@ -315,7 +315,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.put(
-            "http://localhost:3000/api/users/change-password",
+            "https://adnuverse-backend.onrender.com/api/users/change-password",
             {
               oldPassword,
               newPassword,
@@ -352,7 +352,7 @@ export const useUserStore = create(
             throw new Error("User is not authenticated.");
           }
 
-          const res = await axios.get("http://localhost:3000/api/users", {
+          const res = await axios.get("https://adnuverse-backend.onrender.com/api/users", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -377,7 +377,7 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("http://localhost:3000/api/posts");
+          const res = await axios.get("https://adnuverse-backend.onrender.com/api/posts");
           const allPosts = res.data.data;
           const { currentUser } = get();
 
@@ -438,7 +438,7 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("http://localhost:3000/api/posts");
+          const res = await axios.get("https://adnuverse-backend.onrender.com/api/posts");
           const allPosts = res.data.data;
           const { currentUser } = get();
 
@@ -500,7 +500,7 @@ export const useUserStore = create(
             throw new Error("User is not authenticated.");
           }
 
-          await axios.delete(`http://localhost:3000/api/posts/${postId}`, {
+          await axios.delete(`https://adnuverse-backend.onrender.com/api/posts/${postId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -538,7 +538,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            "http://localhost:3000/api/posts",
+            "https://adnuverse-backend.onrender.com/api/posts",
             { media, text: caption, visibility, tags, relatedCourse }, //relatedCourse
             {
               headers: {
@@ -579,7 +579,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.put(
-            `http://localhost:3000/api/posts/${postId}`,
+            `https://adnuverse-backend.onrender.com/api/posts/${postId}`,
             updatedFields,
             {
               headers: {
@@ -622,7 +622,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            "http://localhost:3000/api/reels",
+            "https://adnuverse-backend.onrender.com/api/reels",
             { caption: text, videoUrl, visibility, tags, relatedCourse },
             {
               headers: {
@@ -647,7 +647,7 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("http://localhost:3000/api/reels");
+          const res = await axios.get("https://adnuverse-backend.onrender.com/api/reels");
 
           const { currentUser } = get();
           const allReels = res.data.data;
@@ -705,7 +705,7 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("http://localhost:3000/api/reels");
+          const res = await axios.get("https://adnuverse-backend.onrender.com/api/reels");
           const { currentUser } = get();
 
           const userReels = res.data.data
@@ -767,7 +767,7 @@ export const useUserStore = create(
             throw new Error("User is not authenticated.");
           }
 
-          await axios.delete(`http://localhost:3000/api/reels/${reelId}`, {
+          await axios.delete(`https://adnuverse-backend.onrender.com/api/reels/${reelId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -798,7 +798,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `http://localhost:3000/api/reels/${reelId}/view`,
+            `https://adnuverse-backend.onrender.com/api/reels/${reelId}/view`,
             {},
             {
               headers: {
@@ -832,7 +832,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `http://localhost:3000/api/reels/${reelId}/like`,
+            `https://adnuverse-backend.onrender.com/api/reels/${reelId}/like`,
             {},
             {
               headers: {
@@ -873,7 +873,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            "http://localhost:3000/api/stories/create",
+            "https://adnuverse-backend.onrender.com/api/stories/create",
             { Type_Of_Story, text, media, visibility, textStyle },
             {
               headers: {
@@ -898,7 +898,7 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("http://localhost:3000/api/stories");
+          const res = await axios.get("https://adnuverse-backend.onrender.com/api/stories");
           const { currentUser } = get();
 
           let stories = res.data.data;
@@ -978,7 +978,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.delete(
-            `http://localhost:3000/api/stories/${storyId}`,
+            `https://adnuverse-backend.onrender.com/api/stories/${storyId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1009,7 +1009,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `http://localhost:3000/api/stories/${storyId}/like`,
+            `https://adnuverse-backend.onrender.com/api/stories/${storyId}/like`,
             {},
             {
               headers: {
@@ -1041,7 +1041,7 @@ export const useUserStore = create(
           }
 
           await axios.post(
-            `http://localhost:3000/api/stories/${storyId}/view`,
+            `https://adnuverse-backend.onrender.com/api/stories/${storyId}/view`,
             {},
             {
               headers: {
@@ -1075,7 +1075,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `http://localhost:3000/api/posts/${postId}/like`,
+            `https://adnuverse-backend.onrender.com/api/posts/${postId}/like`,
             {},
             {
               headers: {
@@ -1103,7 +1103,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token"); // Assuming you store JWT in localStorage
           const response = await axios.post(
-            `http://localhost:3000/api/comments/post/${postId}/comment`,
+            `https://adnuverse-backend.onrender.com/api/comments/post/${postId}/comment`,
             { text },
             {
               headers: {
@@ -1124,7 +1124,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `http://localhost:3000/api/comments/post/${postId}/comments`,
+            `https://adnuverse-backend.onrender.com/api/comments/post/${postId}/comments`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1144,7 +1144,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token");
           const response = await axios.delete(
-            `http://localhost:3000/api/comments/${commentId}`,
+            `https://adnuverse-backend.onrender.com/api/comments/${commentId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1164,7 +1164,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token"); // Assuming you store JWT in localStorage
           const response = await axios.post(
-            `http://localhost:3000/api/comments/reel/${reelId}/comment`,
+            `https://adnuverse-backend.onrender.com/api/comments/reel/${reelId}/comment`,
             { reelId, text },
             {
               headers: {
@@ -1185,7 +1185,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `http://localhost:3000/api/comments/reel/${reelId}/comments`,
+            `https://adnuverse-backend.onrender.com/api/comments/reel/${reelId}/comments`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1206,7 +1206,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `http://localhost:3000/api/users/${userId}`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1232,7 +1232,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `http://localhost:3000/api/users/${userId}/followers`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}/followers`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1261,7 +1261,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `http://localhost:3000/api/users/${userId}/following`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}/following`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1289,7 +1289,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `http://localhost:3000/api/users/${userId}/followers`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}/followers`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1319,7 +1319,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `http://localhost:3000/api/users/${userId}/following`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}/following`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1353,7 +1353,7 @@ export const useUserStore = create(
           }
 
           const response = await axios.post(
-            `http://localhost:3000/api/users/${userId}/follow`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}/follow`,
             {},
             {
               headers: {
@@ -1396,7 +1396,7 @@ export const useUserStore = create(
           }
 
           const response = await axios.post(
-            `http://localhost:3000/api/users/${userId}/unfollow`,
+            `https://adnuverse-backend.onrender.com/api/users/${userId}/unfollow`,
             {},
             {
               headers: {
@@ -1431,7 +1431,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `http://localhost:3000/api/notifications/${userId}`,
+            `https://adnuverse-backend.onrender.com/api/notifications/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1459,7 +1459,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           await axios.delete(
-            `http://localhost:3000/api/notifications/${notificationId}`,
+            `https://adnuverse-backend.onrender.com/api/notifications/${notificationId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1485,7 +1485,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.delete(
-            `http://localhost:3000/api/notifications/user/${userId}`,
+            `https://adnuverse-backend.onrender.com/api/notifications/user/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,

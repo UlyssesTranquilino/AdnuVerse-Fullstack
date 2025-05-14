@@ -199,7 +199,7 @@ const SignUpPage = () => {
             <button
               type="button"
               onClick={() => {
-                window.location.href = "http://localhost:3000/auth/google";
+                window.location.href = "https://adnuverse-backend.onrender.com/auth/google";
               }}
               className="cursor-pointer mt-3 py-3 flex items-center justify-center gap-3 bg-white text-black border border-gray-300 hover:bg-gray-100 rounded-sm text-sm w-full"
             >

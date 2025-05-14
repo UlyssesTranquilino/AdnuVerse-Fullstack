@@ -18,7 +18,7 @@ const SignInPage = () => {
 
   // Handle Google Login - redirect approach
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "https://adnuverse-backend.onrender.com/auth/google";
   };
 
   // Handle authentication after redirect back from Google
