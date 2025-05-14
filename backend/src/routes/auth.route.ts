@@ -22,13 +22,13 @@ router.get(
       const user = req.user as any;
 
       if (!user) {
-        res.redirect("http://localhost:5173/login?error=user_not_found");
+        res.redirect("https://adnuversepublish-frontend.onrender.com/login?error=user_not_found");
         return;
       }
 
       const fullUser = await UserModel.findById(user._id).lean();
       if (!fullUser) {
-        res.redirect("http://localhost:5173/login?error=user_not_in_db");
+        res.redirect("https://adnuversepublish-frontend.onrender.com/login?error=user_not_in_db");
         return;
       }
 
@@ -45,11 +45,11 @@ router.get(
 
       // Redirect with token and user data in URL
       res.redirect(
-        `http://localhost:5173/auth/google/callback?token=${token}&user=${encodedUser}`
+        `https://adnuversepublish-frontend.onrender.com/auth/google/callback?token=${token}&user=${encodedUser}`
       );
     } catch (error) {
       console.error("Error during Google authentication:", error);
-      res.redirect("http://localhost:5173/login?error=auth_error");
+      res.redirect("https://adnuversepublish-frontend.onrender.com/login?error=auth_error");
     }
   }
 );
