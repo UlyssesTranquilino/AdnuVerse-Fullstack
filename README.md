@@ -55,13 +55,7 @@ The platform includes secure **user authentication**, dynamic content features, 
 ## 📚 Full Documentation
 
 For full technical and user documentation, please visit:  
-📄 [Adnuverse Documentation (Google Docs)](https://docs.google.com/document/d/1t6_4bBIOgGyIrwWgKEYyxxIy0pfnENKGNyOHVb3R8U0/edit?usp=sharing)
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+📄 [Adnuverse Documentation (Notion)](https://www.notion.so/Adnu-Verse-Documentationfinal-Import-May-14-2025-1f3d7dac926f80f79a92da10f6b1b413?pvs=4)
 
 ---
 
