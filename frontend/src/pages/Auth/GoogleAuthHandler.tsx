@@ -9,11 +9,11 @@ const GoogleAuthHandler = () => {
   const [searchParams] = useSearchParams();
   const { setCurrentUser } = useUserStore();
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const token = searchParams.get("token");
     const user = searchParams.get("user");
- console.log("Callback URL params:", { token, user });
+
     // Process login only if token and user exist
     if (token && user) {
       try {
