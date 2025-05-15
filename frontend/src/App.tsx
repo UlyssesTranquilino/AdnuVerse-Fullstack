@@ -57,7 +57,7 @@ function App() {
       <section className="bg-primaryBg  text-primary ">
         <Navbar />
         <Routes>
-          <Route path="https://adnuversepublish-frontend.onrender.com/auth/google/callback" element={<GoogleAuthHandler />} />{" "}
+          <Route path="/auth/google/callback" element={<GoogleAuthHandler />} />{" "}
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route
