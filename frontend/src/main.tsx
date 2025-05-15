@@ -4,10 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
 
-import { GoogleOAuthProvider } from "@react-oauth/google";
-
-const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter
@@ -15,9 +11,7 @@ createRoot(document.getElementById("root")!).render(
         v7_startTransition: true,
       }}
     >
-      <GoogleOAuthProvider clientId={CLIENT_ID}>
-        <App />
-      </GoogleOAuthProvider>
+      <App />
     </BrowserRouter>
   </StrictMode>
 );

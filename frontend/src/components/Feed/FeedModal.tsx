@@ -57,7 +57,7 @@ const FeedModal = ({ mediaUrls, mediaUrlActive, onClose }: FeedModalProps) => {
           className="cursor-pointer hover:bg-gray-100/30 p-1 rounded-full  absolute top-2   right-2 text-white z-50"
           aria-label="Close story viewer"
         >
-          <Close className="scale-115" />
+          <Close className="scale-115 text-primary" />
         </button>
         {prevBtnEnabled && (
           <button
