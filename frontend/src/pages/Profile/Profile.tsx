@@ -313,9 +313,8 @@ const Profile = () => {
                 <div className="flex items-center flex-col sm:items-start">
                   <Skeleton variant="text" width="40%" height={30} />
                   <Skeleton variant="text" width="20%" height={20} />
-                  <div className="mt-3 w-full">
-                    <Skeleton variant="text" width="30%" height={20} />
-                  </div>
+
+                  <Skeleton variant="text" width="30%" height={20} />
                 </div>
                 <div className="text-sm lg:text-base flex items-center sm:justify-start justify-center gap-2 ">
                   <Skeleton variant="text" width="25%" height={50} />

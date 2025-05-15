@@ -137,7 +137,9 @@ export const useReelsStore = create<ReelsStore>((set) => ({
   fetchReels: async () => {
     set({ loading: true });
     try {
-      const res = await axios.get("https://adnuverse-backend.onrender.com/api/reels");
+      const res = await axios.get(
+        "https://adnuverse-backend.onrender.com/api/reels"
+      );
 
       set({ reels: res.data.data, loading: false });
     } catch (err) {
@@ -352,11 +354,14 @@ export const useUserStore = create(
             throw new Error("User is not authenticated.");
           }
 
-          const res = await axios.get("https://adnuverse-backend.onrender.com/api/users", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const res = await axios.get(
+            "https://adnuverse-backend.onrender.com/api/users",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           const users = res.data.data;
 
@@ -377,7 +382,9 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("https://adnuverse-backend.onrender.com/api/posts");
+          const res = await axios.get(
+            "https://adnuverse-backend.onrender.com/api/posts"
+          );
           const allPosts = res.data.data;
           const { currentUser } = get();
 
@@ -438,7 +445,9 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("https://adnuverse-backend.onrender.com/api/posts");
+          const res = await axios.get(
+            "https://adnuverse-backend.onrender.com/api/posts"
+          );
           const allPosts = res.data.data;
           const { currentUser } = get();
 
@@ -500,11 +509,14 @@ export const useUserStore = create(
             throw new Error("User is not authenticated.");
           }
 
-          await axios.delete(`https://adnuverse-backend.onrender.com/api/posts/${postId}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          await axios.delete(
+            `https://adnuverse-backend.onrender.com/api/posts/${postId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           const updatedPosts = await get().getAllPost();
 
@@ -647,7 +659,9 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("https://adnuverse-backend.onrender.com/api/reels");
+          const res = await axios.get(
+            "https://adnuverse-backend.onrender.com/api/reels"
+          );
 
           const { currentUser } = get();
           const allReels = res.data.data;
@@ -705,7 +719,9 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("https://adnuverse-backend.onrender.com/api/reels");
+          const res = await axios.get(
+            "https://adnuverse-backend.onrender.com/api/reels"
+          );
           const { currentUser } = get();
 
           const userReels = res.data.data
@@ -767,11 +783,14 @@ export const useUserStore = create(
             throw new Error("User is not authenticated.");
           }
 
-          await axios.delete(`https://adnuverse-backend.onrender.com/api/reels/${reelId}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          await axios.delete(
+            `https://adnuverse-backend.onrender.com/api/reels/${reelId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           const updatedReels = await get().getUserReels();
 
@@ -898,7 +917,9 @@ export const useUserStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await axios.get("https://adnuverse-backend.onrender.com/api/stories");
+          const res = await axios.get(
+            "https://adnuverse-backend.onrender.com/api/stories"
+          );
           const { currentUser } = get();
 
           let stories = res.data.data;

@@ -257,7 +257,7 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
                   </div>
 
                   {/* User Info */}
-                  <div className="absolute top-5 left-4 flex items-center gap-2 z-40">
+                  <div className="absolute top-3 sm:top-5 left-4 flex items-center gap-2 z-40">
                     <div className="w-8 h-8 bg-gray-600 rounded-full">
                       {story.user?.avatar &&
                       !story.user.avatar.includes(
