@@ -164,15 +164,6 @@ const ReelViewer: React.FC<ReelViewerProps> = ({
             className="cursor-pointer absolute right-16 top-10 md:top-12 z-50 w-28 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 popover-container"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* <button
-              onClick={() => {
-                handleClosePopOver();
-              }}
-              className="cursor-pointer w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm flex items-center gap-2"
-            >
-              <EditIcon fontSize="small" />
-              Edit
-            </button> */}
             <button
               onClick={() => {
                 handleDeleteReel(data._id);
@@ -227,7 +218,7 @@ const ReelViewer: React.FC<ReelViewerProps> = ({
               </div>
             )}
 
-            <div className="bg-gray-900 h-full ">
+            <div className="bg-gray-900 h-full">
               <video
                 id="video"
                 src={data.videoUrl}
@@ -280,7 +271,7 @@ const ReelViewer: React.FC<ReelViewerProps> = ({
         </div>
 
         {/* User info at the bottom */}
-        <div className="w-[300px] px-5 pr-8 sm:px-0 pb-10 text-primary">
+        <div className="w-[300px]  px-5 pr-8 sm:px-0 pb-10 text-primary">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gray-400 rounded-full">
               {data.user?.avatar &&
@@ -346,20 +337,6 @@ const ReelViewer: React.FC<ReelViewerProps> = ({
           </div>
         </div>
       </div>
-
-      {/* <div
-        key={Date.now()}
-        className=" hidden commentSectionDesktop  z-3  absolute  items-start "
-      >
-        {commentOpen && (
-          <CommentModal
-            commentData={commentData}
-            setCommentData={setCommentData}
-            commentOpen={commentOpen}
-            setCommentOpen={setCommentOpen}
-          />
-        )}
-      </div> */}
     </div>
   );
 };

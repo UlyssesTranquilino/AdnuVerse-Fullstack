@@ -217,7 +217,7 @@ const Navbar = () => {
                   <img
                     src={currentUser.avatar}
                     alt="User Avatar"
-                    className="w-full h-full rounded-full object-cover"
+                    className="w-full h-full rounded-full object-cover "
                   />
                 ) : (
                   <div className="w-full h-full rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
@@ -462,25 +462,27 @@ const Navbar = () => {
               notifications.map((item) => (
                 <MenuItem key={item._id}>
                   <div className="flex items-center gap-3 text-sm w-full justify-between">
-                    <div className="flex gap-3 w-full">
-                      {item.sender?.avatar &&
-                      !item.sender.avatar.includes(
-                        "https://lh3.googleusercontent.com/"
-                      ) ? (
-                        <img
-                          src={item.sender.avatar}
-                          alt="User Avatar"
-                          className="w-10 h-10 rounded-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
-                          <span className="text-lg font-semibold text-blue-400 dark:text-accent">
-                            {item.sender?.firstName?.[0]?.toUpperCase()}
-                            {item.sender?.lastName?.[0]?.toUpperCase()}
-                          </span>
-                        </div>
-                      )}
-                      <div className="text-xs min-w-0">
+                    <div className="flex gap-3 w-full ">
+                      <div className="">
+                        {item.sender?.avatar &&
+                        !item.sender.avatar.includes(
+                          "https://lh3.googleusercontent.com/"
+                        ) ? (
+                          <img
+                            src={item.sender.avatar}
+                            alt="User Avatar"
+                            className="w-10 h-10  rounded-full object-cover "
+                          />
+                        ) : (
+                          <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
+                            <span className="text-lg font-semibold text-blue-400 dark:text-accent">
+                              {item.sender?.firstName?.[0]?.toUpperCase()}
+                              {item.sender?.lastName?.[0]?.toUpperCase()}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="text-xs min-w-0  w-45">
                         <p className="font-semibold break-words whitespace-normal overflow-hidden">
                           <span className="text-sm text-blue-500 dark:text-accent">
                             {item.sender?.firstName} {item.sender?.lastName}

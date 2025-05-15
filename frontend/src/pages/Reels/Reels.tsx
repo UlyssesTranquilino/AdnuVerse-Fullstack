@@ -254,7 +254,7 @@ const Reels = () => {
 
       <section className="overflow-hidden h-[90vh] relative  sm:col-span-3 md:col-span-13 lg:col-span-9 flex-1 rounded-md lg:px-15 ">
         {/* Comment Section */}
-        <div key={Date.now()} className={`commentSectionMobile z-3 `}>
+        <div key={Date.now()} className={`commentSectionMobile z-3  mb-30`}>
           {commentOpen && (
             <CommentModal
               reelData={activeReel}

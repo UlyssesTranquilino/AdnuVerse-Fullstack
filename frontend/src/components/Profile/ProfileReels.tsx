@@ -74,7 +74,7 @@ const ProfileReels = ({ userId }) => {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
         <h1 className="font-semibold sm:mb-5 text-lg md:text-xl">Reels</h1>
 
-        <label className="flex  items-center gap-3 ">
+        {/* <label className="flex  items-center gap-3 ">
           <h1>Sort by:</h1>
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <Select
@@ -108,7 +108,7 @@ const ProfileReels = ({ userId }) => {
               <MenuItem value={"oldest"}>Oldest</MenuItem>
             </Select>
           </FormControl>
-        </label>
+        </label> */}
       </div>
       {hasReels ? (
         <div className=" mt-7 grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -193,7 +193,7 @@ const ProfileReels = ({ userId }) => {
             height="100%"
           />
         </div>
-
+        {/* 
         <label className="flex  items-center gap-3 ">
           <div className="w-16 mb-5 h-7 mt-4 flex-shrink-0 overflow-hidden">
             <Skeleton
@@ -212,7 +212,7 @@ const ProfileReels = ({ userId }) => {
               height="100%"
             />
           </div>
-        </label>
+        </label> */}
       </div>
 
       <div className=" mt-7 grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5">

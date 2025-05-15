@@ -153,7 +153,7 @@ const CommentModal: React.FC<CommentModalProps> = ({
   };
 
   return (
-    <div className="bg-secondaryBg  m-auto mb-20 md:mb-10  max-w-75 commentModal h-[70vh]  pt-[3px]  px-5 rounded-lg">
+    <div className="bg-secondaryBg  m-auto mb-5 sm:mb-12  h-[430px] sm:h-[520px] max-w-75 commentModal pt-[3px]  px-5 rounded-lg">
       {!isReelViewer && (
         <Toaster
           toastOptions={{
