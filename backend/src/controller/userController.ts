@@ -23,7 +23,6 @@ export const UserController = {
   ): Promise<void> => {
     try {
       const user = (req as Request & { user: any }).user; // Cast `req.user` as `any`
-      console.log("User info from JWT:", user); // Access user data from JWT
 
       const users = await getUsers();
       res.status(200).json({ success: true, data: users });
@@ -42,7 +41,7 @@ export const UserController = {
     try {
       const { email } = req.params;
       const user = (req as Request & { user: any }).user; // Cast `req.user` as `any`
-      console.log("User info from JWT:", user); // Access user data from JWT
+   
 
       const token = req.headers["authorization"]?.split(" ")[1]; // Get token from the Authorization header
       if (token) {
@@ -75,8 +74,6 @@ export const UserController = {
     next: NextFunction
   ): Promise<void> => {
     try {
-      // Log the entire request body to see the data being sent
-      console.log("Request Body:", req.body);
 
       // Ensure 'firstName' and 'lastName' are in the request body
       const {
