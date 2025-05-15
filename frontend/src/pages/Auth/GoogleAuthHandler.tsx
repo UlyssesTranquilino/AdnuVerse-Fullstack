@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useUserStore } from "../../global/mode";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import Logo from "../../assets/Logo.png";
 
 const GoogleAuthHandler = () => {
@@ -11,13 +11,22 @@ const GoogleAuthHandler = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("GoogleAuthHandler: URL search params:", searchParams.toString());
+
     const token = searchParams.get("token");
     const user = searchParams.get("user");
 
-    // Process login only if token and user exist
+    console.log("Extracted token:", token);
+    console.log("Extracted user string:", user);
+
     if (token && user) {
       try {
-        const parsedUser = JSON.parse(decodeURIComponent(user));
+        const decodedUser = decodeURIComponent(user);
+        console.log("Decoded user string:", decodedUser);
+
+        const parsedUser = JSON.parse(decodedUser);
+        console.log("Parsed user object:", parsedUser);
+
         parsedUser.lastName = parsedUser.lastName || ""; // Ensure lastName exists
 
         // Set the token and user data
@@ -26,6 +35,7 @@ const GoogleAuthHandler = () => {
 
         // Show success toast and navigate
         // toast.success("Logged in with Google successfully!");
+        console.log("Login processed successfully, navigating to home...");
         navigate("/", { replace: true });
       } catch (error) {
         console.error("Error parsing user data:", error);
@@ -33,18 +43,16 @@ const GoogleAuthHandler = () => {
         navigate("/login?error=invalid_google_data", { replace: true });
       }
     } else {
+      console.error("Missing token or user in URL params.");
       toast.error("Invalid Google login data");
       navigate("/login?error=invalid_google_data", { replace: true });
     }
 
-    // Once processing is done, stop loading
     setLoading(false);
-  }, [searchParams, navigate, setCurrentUser]); // Run only when searchParams or navigate change
+  }, [searchParams, navigate, setCurrentUser]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-primaryBg dark:bg-secondaryBg p-4">
-      {/* <Toaster position="top-center" /> */}
-
       {/* Animated Logo */}
       <div className="relative w-40 h-40 mb-8">
         <img
