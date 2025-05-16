@@ -161,6 +161,7 @@ export const useUserStore = create(
     (
       set: any,
       get: () => {
+        isLoading: any;
         getAllStories(): unknown;
         getUserReels(userId: string): unknown;
         getAllPost(userId: string): unknown;
@@ -179,36 +180,74 @@ export const useUserStore = create(
         set({ currentUser: user });
       },
 
-      // Login function to authenticate the user
+      // Login function with error handling and state management
       login: async (email: string, password: string) => {
-        set({ isLoading: true, error: null }); // Set loading state before API call
+        set({
+          isLoading: true,
+          error: null,
+          currentUser: null, // Clear any previous user
+        });
+
+        // Add a timeout to prevent infinite loading
+        const timeoutId = setTimeout(() => {
+          if (useUserStore.getState().isLoading) {
+            set({
+              isLoading: false,
+              error: "Request timed out. Please try again.",
+            });
+          }
+        }, 10000); // 10 second timeout
+
         try {
-          // Sending POST request to authenticate the user
           const res = await axios.post(
             `https://adnuverse-backend.onrender.com/api/users/login`,
-            {
-              email: email,
-              password: password,
-            }
+            { email, password }
           );
-          // Extract the token from the response
+
+          clearTimeout(timeoutId); // Clear the timeout on success
+
           const token = res.data.token;
+          const user = res.data.user;
 
-          // Decode the token using jwt-decode
-          const decodedToken = jwtDecode(token);
+          // Validate the response structure
+          if (!token || !user) {
+            throw new Error("Invalid response from server");
+          }
 
-          // Store the token in localStorage for persistence
+          // Store token and update state
           localStorage.setItem("token", token);
+          set({
+            currentUser: user,
+            isLoading: false,
+            error: null,
+          });
 
-          // Set the decoded user data to the store
-          set({ currentUser: res.data.user, isLoading: false });
+          return true; // Indicate success
         } catch (error: any) {
-          // Error handling
-          set({ error: error.response?.data.error, isLoading: false }); // Set error state
+          clearTimeout(timeoutId); // Clear the timeout on error
+
+          // Enhanced error handling
+          let errorMessage = "Login failed. Please try again.";
+          if (error.response) {
+            errorMessage = error.response.data?.error || errorMessage;
+          } else if (error.request) {
+            errorMessage = "Network error. Please check your connection.";
+          }
+
+          // Clear any invalid token
+          localStorage.removeItem("token");
+
+          set({
+            error: errorMessage,
+            isLoading: false,
+            currentUser: null,
+          });
+
+          return false; // Indicate failure
         }
       },
 
-      //Signup function
+      // Improved signup function
       signup: async (
         firstName: string,
         lastName: string,
@@ -217,52 +256,88 @@ export const useUserStore = create(
         password: string,
         confirmPassword: string
       ) => {
-        set({ isLoading: true, error: null });
+        set({
+          isLoading: true,
+          error: null,
+          currentUser: null,
+        });
+
+        // Validation checks
+        if (password !== confirmPassword) {
+          set({
+            error: "Passwords do not match. Please re-enter them.",
+            isLoading: false,
+          });
+          return false;
+        }
+
+        if (password.length < 8 || password.length > 64) {
+          set({
+            error: "Password must be between 8 and 64 characters long",
+            isLoading: false,
+          });
+          return false;
+        }
+
+        const timeoutId = setTimeout(() => {
+          if (useUserStore.getState().isLoading) {
+            set({
+              isLoading: false,
+              error: "Request timed out. Please try again.",
+            });
+          }
+        }, 10000);
+
         try {
-          if (password !== confirmPassword) {
-            set({
-              error: "Passwords do not match. Please re-enter them.",
-              isLoading: false,
-            });
-            return;
-          }
-
-          if (password.length < 8 || password.length > 64) {
-            set({
-              error: "Password must be between 8 and 64 characters long",
-              isLoading: false,
-            });
-            return;
-          }
-
-          interface SignupResponse {
-            data: {
-              message: string;
-              user: User;
-            };
-          }
-
-          const res: SignupResponse = await axios.post(
+          const res = await axios.post(
             "https://adnuverse-backend.onrender.com/api/users/create",
-            {
-              firstName,
-              lastName,
-              email,
-              username,
-              password,
-            }
+            { firstName, lastName, email, username, password }
           );
 
-          set({ isLoading: false, error: null });
+          clearTimeout(timeoutId);
+
+          // Validate response
+          if (!res.data?.user) {
+            throw new Error("Invalid response from server");
+          }
+
+          set({
+            isLoading: false,
+            error: null,
+            currentUser: res.data.user, // Optionally log user in after signup
+          });
+
+          return true;
         } catch (error: any) {
-          set({ error: error.response?.data.error, isLoading: false });
+          clearTimeout(timeoutId);
+
+          let errorMessage = "Signup failed. Please try again.";
+          if (error.response) {
+            errorMessage = error.response.data?.error || errorMessage;
+          } else if (error.request) {
+            errorMessage = "Network error. Please check your connection.";
+          }
+
+          set({
+            error: errorMessage,
+            isLoading: false,
+          });
+
+          return false;
         }
       },
 
       //Logout function
       logout: () => {
         localStorage.removeItem("token");
-        set({ currentUser: null, error: null, isLoading: false });
+        set({
+          currentUser: null,
+          error: null,
+          isLoading: false,
+          followers: [],
+          following: [],
+          notifications: [],
+        });
       },
 
       //Update Profile

@@ -74,6 +74,7 @@ const SignInPage = () => {
     try {
       await login(email, password);
       if (error) {
+        console.log("ERROR: ", error);
         setIsError(true);
         setErrorMessage(error);
       } else {
@@ -81,6 +82,7 @@ const SignInPage = () => {
         navigate("/");
       }
     } catch (err) {
+      console.log("ERROR: ", err);
       setIsError(true);
       setErrorMessage("Login failed. Please try again.");
     }

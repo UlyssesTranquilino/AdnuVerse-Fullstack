@@ -91,6 +91,10 @@ body {
     left: 4.5rem;
     top: 4rem;
   }
+
+  .visibilityLabel {
+    display: block;
+  }
 }
 
 @media (min-width: 640px) {
