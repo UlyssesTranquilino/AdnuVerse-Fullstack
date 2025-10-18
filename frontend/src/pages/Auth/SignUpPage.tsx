@@ -200,7 +200,7 @@ const SignUpPage = () => {
               type="button"
               onClick={() => {
                 window.location.href =
-                  "https://adnuverse-backend.onrender.com/auth/google";
+                  "https://adnu-verse-fullstack.vercel.app/auth/google";
               }}
               className="cursor-pointer mt-3 py-3 flex items-center justify-center gap-3 bg-white text-black border border-gray-300 hover:bg-gray-100 rounded-sm text-sm w-full"
             >

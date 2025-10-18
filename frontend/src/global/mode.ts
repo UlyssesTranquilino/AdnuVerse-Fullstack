@@ -138,7 +138,7 @@ export const useReelsStore = create<ReelsStore>((set) => ({
     set({ loading: true });
     try {
       const res = await axios.get(
-        "https://adnuverse-backend.onrender.com/api/reels"
+        "https://adnu-verse-fullstack.vercel.app/api/reels"
       );
 
       set({ reels: res.data.data, loading: false });
@@ -200,7 +200,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/users/login`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/login`,
             { email, password }
           );
 
@@ -290,7 +290,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.post(
-            "https://adnuverse-backend.onrender.com/api/users/create",
+            "https://adnu-verse-fullstack.vercel.app/api/users/create",
             { firstName, lastName, email, username, password }
           );
 
@@ -358,7 +358,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.put(
-            `https://adnuverse-backend.onrender.com/api/users/${currentUser._id}`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${currentUser._id}`,
             updatedFields,
             {
               headers: {
@@ -392,7 +392,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.put(
-            "https://adnuverse-backend.onrender.com/api/users/change-password",
+            "https://adnu-verse-fullstack.vercel.app/api/users/change-password",
             {
               oldPassword,
               newPassword,
@@ -430,7 +430,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.get(
-            "https://adnuverse-backend.onrender.com/api/users",
+            "https://adnu-verse-fullstack.vercel.app/api/users",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -458,7 +458,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.get(
-            "https://adnuverse-backend.onrender.com/api/posts"
+            "https://adnu-verse-fullstack.vercel.app/api/posts"
           );
           const allPosts = res.data.data;
           const { currentUser } = get();
@@ -521,7 +521,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.get(
-            "https://adnuverse-backend.onrender.com/api/posts"
+            "https://adnu-verse-fullstack.vercel.app/api/posts"
           );
           const allPosts = res.data.data;
           const { currentUser } = get();
@@ -585,7 +585,7 @@ export const useUserStore = create(
           }
 
           await axios.delete(
-            `https://adnuverse-backend.onrender.com/api/posts/${postId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/posts/${postId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -625,7 +625,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            "https://adnuverse-backend.onrender.com/api/posts",
+            "https://adnu-verse-fullstack.vercel.app/api/posts",
             { media, text: caption, visibility, tags, relatedCourse }, //relatedCourse
             {
               headers: {
@@ -666,7 +666,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.put(
-            `https://adnuverse-backend.onrender.com/api/posts/${postId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/posts/${postId}`,
             updatedFields,
             {
               headers: {
@@ -709,7 +709,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            "https://adnuverse-backend.onrender.com/api/reels",
+            "https://adnu-verse-fullstack.vercel.app/api/reels",
             { caption: text, videoUrl, visibility, tags, relatedCourse },
             {
               headers: {
@@ -735,7 +735,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.get(
-            "https://adnuverse-backend.onrender.com/api/reels"
+            "https://adnu-verse-fullstack.vercel.app/api/reels"
           );
 
           const { currentUser } = get();
@@ -795,7 +795,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.get(
-            "https://adnuverse-backend.onrender.com/api/reels"
+            "https://adnu-verse-fullstack.vercel.app/api/reels"
           );
           const { currentUser } = get();
 
@@ -859,7 +859,7 @@ export const useUserStore = create(
           }
 
           await axios.delete(
-            `https://adnuverse-backend.onrender.com/api/reels/${reelId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/reels/${reelId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -892,7 +892,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/reels/${reelId}/view`,
+            `https://adnu-verse-fullstack.vercel.app/api/reels/${reelId}/view`,
             {},
             {
               headers: {
@@ -926,7 +926,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/reels/${reelId}/like`,
+            `https://adnu-verse-fullstack.vercel.app/api/reels/${reelId}/like`,
             {},
             {
               headers: {
@@ -967,7 +967,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            "https://adnuverse-backend.onrender.com/api/stories/create",
+            "https://adnu-verse-fullstack.vercel.app/api/stories/create",
             { Type_Of_Story, text, media, visibility, textStyle },
             {
               headers: {
@@ -993,7 +993,7 @@ export const useUserStore = create(
 
         try {
           const res = await axios.get(
-            "https://adnuverse-backend.onrender.com/api/stories"
+            "https://adnu-verse-fullstack.vercel.app/api/stories"
           );
           const { currentUser } = get();
 
@@ -1074,7 +1074,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.delete(
-            `https://adnuverse-backend.onrender.com/api/stories/${storyId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/stories/${storyId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1105,7 +1105,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/stories/${storyId}/like`,
+            `https://adnu-verse-fullstack.vercel.app/api/stories/${storyId}/like`,
             {},
             {
               headers: {
@@ -1137,7 +1137,7 @@ export const useUserStore = create(
           }
 
           await axios.post(
-            `https://adnuverse-backend.onrender.com/api/stories/${storyId}/view`,
+            `https://adnu-verse-fullstack.vercel.app/api/stories/${storyId}/view`,
             {},
             {
               headers: {
@@ -1171,7 +1171,7 @@ export const useUserStore = create(
           }
 
           const res = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/posts/${postId}/like`,
+            `https://adnu-verse-fullstack.vercel.app/api/posts/${postId}/like`,
             {},
             {
               headers: {
@@ -1199,7 +1199,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token"); // Assuming you store JWT in localStorage
           const response = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/comments/post/${postId}/comment`,
+            `https://adnu-verse-fullstack.vercel.app/api/comments/post/${postId}/comment`,
             { text },
             {
               headers: {
@@ -1220,7 +1220,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/comments/post/${postId}/comments`,
+            `https://adnu-verse-fullstack.vercel.app/api/comments/post/${postId}/comments`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1240,7 +1240,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token");
           const response = await axios.delete(
-            `https://adnuverse-backend.onrender.com/api/comments/${commentId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/comments/${commentId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1260,7 +1260,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token"); // Assuming you store JWT in localStorage
           const response = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/comments/reel/${reelId}/comment`,
+            `https://adnu-verse-fullstack.vercel.app/api/comments/reel/${reelId}/comment`,
             { reelId, text },
             {
               headers: {
@@ -1281,7 +1281,7 @@ export const useUserStore = create(
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/comments/reel/${reelId}/comments`,
+            `https://adnu-verse-fullstack.vercel.app/api/comments/reel/${reelId}/comments`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1302,7 +1302,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1328,7 +1328,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}/followers`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}/followers`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1357,7 +1357,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}/following`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}/following`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1385,7 +1385,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}/followers`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}/followers`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1415,7 +1415,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}/following`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}/following`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1449,7 +1449,7 @@ export const useUserStore = create(
           }
 
           const response = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}/follow`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}/follow`,
             {},
             {
               headers: {
@@ -1492,7 +1492,7 @@ export const useUserStore = create(
           }
 
           const response = await axios.post(
-            `https://adnuverse-backend.onrender.com/api/users/${userId}/unfollow`,
+            `https://adnu-verse-fullstack.vercel.app/api/users/${userId}/unfollow`,
             {},
             {
               headers: {
@@ -1527,7 +1527,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.get(
-            `https://adnuverse-backend.onrender.com/api/notifications/${userId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/notifications/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1555,7 +1555,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           await axios.delete(
-            `https://adnuverse-backend.onrender.com/api/notifications/${notificationId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/notifications/${notificationId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -1581,7 +1581,7 @@ export const useUserStore = create(
           const token = localStorage.getItem("token");
 
           const res = await axios.delete(
-            `https://adnuverse-backend.onrender.com/api/notifications/user/${userId}`,
+            `https://adnu-verse-fullstack.vercel.app/api/notifications/user/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
