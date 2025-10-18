@@ -43,7 +43,8 @@ app.use(
 const allowedOrigins = [
   process.env.FRONTEND_URL || "http://localhost:5173",
   "https://adnu-verse-frontend.vercel.app", // production frontend
-  "https://adnuverse.vercel.app/signin",
+  "https://adnuverse.vercel.app",
+  "https://adnu-verse-fullstack.vercel.app/auth/google",
 ];
 
 app.use(
