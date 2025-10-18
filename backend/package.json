@@ -31,6 +31,6 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "start": "nodemon --watch src --ext ts --exec ts-node -r tsconfig-paths/register src/index.ts"
+  "start": "ts-node -r tsconfig-paths/register src/index.ts"
   }
 }
