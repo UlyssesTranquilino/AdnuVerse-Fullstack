@@ -18,8 +18,8 @@ const SignInPage = () => {
 
   // Handle Google Login - redirect approach
   const handleGoogleLogin = () => {
-    window.location.href =
-      "https://adnu-verse-fullstack.vercel.app/auth/google";
+    window.location.href = "http://localhost:3000/auth/google ";
+    // "https://adnu-verse-fullstack.vercel.app/auth/google";
   };
 
   // Handle authentication after redirect back from Google
